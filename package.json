@@ -1,0 +1,44 @@
+{
+  "name": "ct-flight-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for flight search functionality",
+  "main": "build/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && cp src/airport_code.csv build/airport_code.csv",
+    "dev": "tsx src/index.ts",
+    "start": "node build/index.js",
+    "start:remote": "NODE_TLS_REJECT_UNAUTHORIZED=0 HOST=0.0.0.0 PORT=3000 node build/index.js",
+    "start:stdio": "node build/stdio-server.js",
+    "dev:remote": "HOST=0.0.0.0 PORT=3000 tsx src/index.ts",
+    "dev:stdio": "tsx src/stdio-server.ts",
+    "test": "jest",
+    "test:remote": "node test-remote-server.js",
+    "test:amadeus": "NODE_TLS_REJECT_UNAUTHORIZED=0 node test-amadeus.js"
+  },
+  "keywords": [
+    "mcp",
+    "flight",
+    "search",
+    "server"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.17.5",
+    "amadeus": "^11.0.0",
+    "content-type": "^1.0.5",
+    "dotenv": "^17.2.2",
+    "raw-body": "^2.5.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.10.0",
+    "eventsource": "^2.0.2",
+    "jest": "^29.7.0",
+    "node-fetch": "^3.3.2",
+    "tsx": "^4.6.0",
+    "typescript": "^5.3.0"
+  }
+}

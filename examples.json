@@ -1,0 +1,165 @@
+{
+  "examples": {
+    "search_flights": {
+      "description": "Search for flights from JFK to LHR on March 15, 2024",
+      "request": {
+        "method": "tools/call",
+        "params": {
+          "name": "search_flights",
+          "arguments": {
+            "from": "JFK",
+            "to": "LHR",
+            "date": "2024-03-15",
+            "include_connecting": true
+          }
+        }
+      }
+    },
+    "search_flights_range": {
+      "description": "Search for flights from LAX to NRT between March 15-20, 2024, departing between 6 AM and 6 PM",
+      "request": {
+        "method": "tools/call",
+        "params": {
+          "name": "search_flights_range",
+          "arguments": {
+            "from": "LAX",
+            "to": "NRT",
+            "start_date": "2024-03-15",
+            "end_date": "2024-03-20",
+            "start_time": "06:00",
+            "end_time": "18:00",
+            "include_connecting": true
+          }
+        }
+      }
+    },
+    "get_airport_info": {
+      "description": "Get detailed information about JFK airport",
+      "request": {
+        "method": "tools/call",
+        "params": {
+          "name": "get_airport_info",
+          "arguments": {
+            "code": "JFK"
+          }
+        }
+      }
+    },
+    "get_airline_info": {
+      "description": "Get detailed information about American Airlines",
+      "request": {
+        "method": "tools/call",
+        "params": {
+          "name": "get_airline_info",
+          "arguments": {
+            "code": "AA"
+          }
+        }
+      }
+    },
+    "flight_search_query_prompt": {
+      "description": "Generate a flight search query prompt for New York to London trip",
+      "request": {
+        "method": "prompts/get",
+        "params": {
+          "name": "flight_search_query",
+          "arguments": {
+            "from_city": "New York",
+            "to_city": "London",
+            "travel_date": "2024-03-15",
+            "return_date": "2024-03-22",
+            "passengers": "2",
+            "class": "business"
+          }
+        }
+      }
+    },
+    "list_resources": {
+      "description": "List all available resources",
+      "request": {
+        "method": "resources/list",
+        "params": {}
+      }
+    },
+    "read_airport_resource": {
+      "description": "Read the airport list resource",
+      "request": {
+        "method": "resources/read",
+        "params": {
+          "uri": "airport://list"
+        }
+      }
+    },
+    "list_tools": {
+      "description": "List all available tools",
+      "request": {
+        "method": "tools/list",
+        "params": {}
+      }
+    },
+    "list_prompts": {
+      "description": "List all available prompts",
+      "request": {
+        "method": "prompts/list",
+        "params": {}
+      }
+    }
+  },
+  "sample_responses": {
+    "airport_info": {
+      "code": "JFK",
+      "name": "John F. Kennedy International Airport",
+      "city": "New York",
+      "country": "United States",
+      "timezone": "America/New_York",
+      "coordinates": {
+        "latitude": 40.6413,
+        "longitude": -73.7781
+      }
+    },
+    "airline_info": {
+      "code": "AA",
+      "name": "American Airlines",
+      "country": "United States"
+    },
+    "flight_example": {
+      "id": "AA100",
+      "airline": {
+        "code": "AA",
+        "name": "American Airlines",
+        "country": "United States"
+      },
+      "flightNumber": "AA100",
+      "departure": {
+        "airport": {
+          "code": "JFK",
+          "name": "John F. Kennedy International Airport",
+          "city": "New York",
+          "country": "United States",
+          "timezone": "America/New_York"
+        },
+        "time": "2024-03-15T08:30:00",
+        "terminal": "T1",
+        "gate": "A15"
+      },
+      "arrival": {
+        "airport": {
+          "code": "LHR",
+          "name": "Heathrow Airport",
+          "city": "London",
+          "country": "United Kingdom",
+          "timezone": "Europe/London"
+        },
+        "time": "2024-03-15T20:45:00",
+        "terminal": "T2",
+        "gate": "B22"
+      },
+      "duration": 435,
+      "aircraft": "Boeing 777",
+      "price": {
+        "amount": 850,
+        "currency": "USD"
+      }
+    }
+  }
+}
